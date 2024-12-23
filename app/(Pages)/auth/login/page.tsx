@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
+"use client"
 import { Login, Visibility } from '@mui/icons-material'
 import { TextField, InputAdornment, InputLabel, Button } from '@mui/material'
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 const login = () => {
@@ -18,7 +20,7 @@ const login = () => {
 
                 <div className="email">
                     <InputLabel className='my-3' htmlFor="email">Email </InputLabel>
-                    <TextField className='sm:w-[27rem] max-[450]:w-[24rem] w-[19rem]' id='email' placeholder="example@gmail.com" variant="outlined"
+                    <TextField className='sm:w-[25rem] w-[19rem]' id='email' placeholder="example@gmail.com" variant="outlined"
                         InputProps={{
                             endAdornment: (
                                 <InputAdornment position="end">
@@ -34,7 +36,7 @@ const login = () => {
                 <div className="Password">
 
                     <InputLabel className='my-3' htmlFor='password'>Password</InputLabel>
-                    <TextField className='sm:w-[27rem] max-[450]:w-[24rem] w-[19rem]' id='password' placeholder='*********' variant="outlined"
+                    <TextField className='sm:w-[25rem] w-[19rem]' id='password' placeholder='*********' variant="outlined"
                         InputProps={{
                             endAdornment: (
                                 <InputAdornment position="end">
@@ -46,7 +48,7 @@ const login = () => {
                 </div>
 
                 {/* buttons */}
-                <div className="buttons flex flex-col items-center gap-y-4">
+                <div className="buttons flex flex-col items-center gap-y-4 sm:w-[25rem] w-[19rem]">
 
                     {/* OAuth 2.0 */}
                     {/* <div className='b-g-[#000000] text-2xl normal-case sm:w-[27rem] max-[450]:w-[24rem] w-[19rem] py-3 mt-4 flex justify-evenly'>
@@ -57,9 +59,9 @@ const login = () => {
 
 
                     {/* login buttons */}
-                    <Button className='bg-[#000000]  text-xl normal-case sm:w-[27rem] max-[450]:w-[24rem] w-[19rem] py-3 mt-4' variant='contained'>Login</Button>
+                    <Button className='bg-[#000000]  text-xl normal-case w-full py-3 mt-4' variant='contained'>Login</Button>
 
-                    <Button className='bg-[#000000]  text-xl normal-case sm:w-[27rem] max-[450]:w-[24rem] w-[19rem] py-[10px] mt-4' variant='contained'>
+                    <Button className='bg-[#000000]  text-xl normal-case w-full py-[10px] mt-4' variant='contained'>
                       <div className="flex items-center h-full justify-center gap-6 w-full">
                         <Image
                         alt='google auth'
@@ -73,8 +75,8 @@ const login = () => {
 
 
                     {/* Options */}
-
-                    <p className='text-sm mt-2'>Don&apos;t have an account <span className='font-semibold underline'>Register here</span></p>
+                        
+                    <Link href={'/auth/signup'}><p className='text-sm mt-2'>Don&apos;t have an account <span className='font-semibold underline'>Register here</span></p></Link>
 
 
                 </div>
