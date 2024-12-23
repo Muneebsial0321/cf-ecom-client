@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-export async function GET():any {
+export async function GET() {
 const data = {
     "title":"Google",
     "desc":"lorem40",
