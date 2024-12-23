@@ -95,17 +95,17 @@ const Register = () => {
 
                 <div className="buttons w-full flex flex-col items-center gap-y-4">
                     <Button className='bg-[#000000] w-full normal-case text-2xl py-3 mt-2' variant='contained'>Create Account</Button>
-                       <Button className='bg-[#000000]  text-xl normal-case w-full py-[10px] mt-4' variant='contained'>
-                                          <div className="flex items-center h-full justify-center gap-6 w-full">
-                                            <Image
-                                            alt='google auth'
-                                            height={'35'}
-                                            width={'35'}
-                                            className=''
-                                            src='/google-icon.webp'/>
-                                            <p>Sign in with google</p>
-                                            </div>
-                                        </Button>
+                    <Button className='bg-[#000000]  text-xl normal-case w-full py-[10px] mt-4' variant='contained'>
+                        <div className="flex items-center h-full justify-center gap-6 w-full">
+                            <Image
+                                alt='google auth'
+                                height={'35'}
+                                width={'35'}
+                                className=''
+                                src='/google-icon.webp' />
+                            <p>Sign in with google</p>
+                        </div>
+                    </Button>
 
                     {/* Options */}
 

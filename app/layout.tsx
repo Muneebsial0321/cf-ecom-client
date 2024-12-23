@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import NavBar from "./Components/NavBar";
 
 export const metadata: Metadata = {
   title: "IShop",
@@ -16,6 +17,7 @@ export default function RootLayout({
       <body
         className={`overflow-x-hidden antialiased`}
       >
+        <NavBar/>
         {children}
       </body>
     </html>
