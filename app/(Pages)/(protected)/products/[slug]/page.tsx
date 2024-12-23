@@ -1,12 +1,20 @@
 import { Button, FormControl, InputLabel, MenuItem, Rating, Select } from '@mui/material'
 import React from 'react'
 
-const page = async ({ params }) => {
-    const slug = await (params).slug
+
+interface PageProps {
+    params: Promise<{
+      slug: string; 
+    }>;
+  }
+const page = async ({ params}:PageProps) => {
+    const pageParams = await params
+    const slug = pageParams.slug
     const product = {
         _id: "",
 
     }
+    console.log({slug})
 
     return (
         <>

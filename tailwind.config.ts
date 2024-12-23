@@ -9,9 +9,10 @@ export default {
   important:true,
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      screens: {
+        sm: '640px',  // All in px
+        md: '768px',
+        lg: '1024px',
       },
     },
   },
