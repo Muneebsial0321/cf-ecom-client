@@ -1,3 +1,4 @@
+"use client"
 import { Button, FormControl, InputLabel, MenuItem, Rating, Select } from '@mui/material'
 import React from 'react'
 
@@ -26,18 +27,19 @@ const page = async ({ params}:PageProps) => {
             <div className="hidden bg-[silver]"></div>
             <div className="hidden bg-[grey]"></div>
 
-            <div className='w-[100vw] py-[6rem] flex justify-center items-center'>
+            <div className='w-[100vw] py-[6rem] flex justify-center items-center lg:flex-row flex-col'>
 
                 {/* img */}
 
-                <div className='flex px-10 bg-inherit flex-col justify-center w-1/2 items-center h-full' id="left img">
-                    <img className='w-3/4 object-contain' src="http://localhost:5000/images/img.webp" alt="" />
+                <div className='flex px-10 bg-inherit flex-col justify-center lg:w-1/2 items-center h-full' id="left img">
+                    {/*  eslint-disable-next-line @next/next/no-img-element */}
+                    <img className='w-3/4 object-contain' src="/google-icon.webp" alt="product-img" />
                 </div>
 
 
 
                 {/* Description */}
-                <div className='flex px-10  flex-col justify-center w-1/2  h-full gap-y-6' id="right">
+                <div className='flex px-10  flex-col justify-center lg:w-1/2  h-full gap-y-6' id="right">
                     <span className='text-sm text-gray-500'>ID :{product._id}</span>
                     <h3 className='text-4xl font-semibold'>Title</h3>
                     <p className='text-xl'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam adipisci quas eos vero id unde delectus odio, pariatur dignissimos esse non aliquam nam porro laudantium, perferendis sit eius? Blanditiis, optio!</p>
@@ -112,7 +114,7 @@ const page = async ({ params}:PageProps) => {
 
                     {/* PRICE */}
 
-                    <p className='text-[black] text-4xl font-bold'>{70}</p>
+                    <p className='text-[black] text-4xl font-bold'>${70}</p>
                     <Button
                         // onClick={() => addproduct({
                         //     ...product
