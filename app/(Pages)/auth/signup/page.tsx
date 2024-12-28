@@ -13,10 +13,12 @@ const Register = () => {
 
     // states
     const [registerData, setRegisterData] = useState<registerType>({ email: "", password: "", name: "" })
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [passToggle, setPassToggle] = useState<boolean>(true) //true-->pass , false-->text
 
 
     // methods
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const __togglePassword__ = () => setPassToggle((prev) => !prev)
 
     const __Submit__ = async () => {

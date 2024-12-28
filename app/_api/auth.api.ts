@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from "./axios.config"
 import { loginType, registerType } from "../types"
 import { redirect } from "next/navigation"
