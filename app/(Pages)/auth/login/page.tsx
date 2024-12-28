@@ -1,30 +1,60 @@
 /* eslint-disable @next/next/no-img-element */
 "use client"
-import { Login, Visibility } from '@mui/icons-material'
+import { googleAuth, login } from '@/app/_api'
+import { loginType } from '@/app/types'
+import { Email, Visibility, VisibilityOff } from '@mui/icons-material'
 import { TextField, InputAdornment, InputLabel, Button } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
+import React, { useState } from 'react'
 
 
-const login = () => {
+export default function Login() {
+
+    // states
+    const [loginData, setLogin] = useState<loginType>({ email: "", password: "" })
+    const [passToggle, setPassToggle] = useState<boolean>(true) //true-->pass , false-->text
+
+
+    // methods
+    const __togglePassword__ = () => setPassToggle((prev) => !prev)
+
+    const __Submit__ = async () => {
+        console.log({ loginData })
+        await login(loginData)
+
+    }
+    const __onchange__ = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
+        setLogin((prev) => ({
+            ...prev,
+            [name]: value
+        }))
+    }
+
+
     return (
         <>
 
-            <div className='w-[100vw] h-[100vh] flex flex-col justify-center items-center gap-y-3'>
+            <div className='w-[100vw] h-[100vh] mt-[4rem] flex flex-col justify-center items-center gap-y-3'>
 
                 {/* intro */}
-                {/* <img className='w-14 object-cover' src="/bazzar_logo.png" alt="" /> */}
+                <img className='w-[5rem] object-cover' src="/logo.png" alt="" />
                 <h2 className='text-3xl font-medium'>Welcome to Bazzar</h2>
 
                 {/*email  */}
 
                 <div className="email">
                     <InputLabel className='my-3' htmlFor="email">Email </InputLabel>
-                    <TextField className='sm:w-[25rem] w-[19rem]' id='email' placeholder="example@gmail.com" variant="outlined"
+                    <TextField
+                        name="email"
+                        onChange={__onchange__}
+                        className='sm:w-[25rem] w-[19rem]' id='email' placeholder="example@gmail.com" variant="outlined"
                         InputProps={{
                             endAdornment: (
                                 <InputAdornment position="end">
-                                    <Login />
+                                    {/* <Login /> */}
+                                    <Email />
                                 </InputAdornment>
                             )
                         }}
@@ -36,47 +66,62 @@ const login = () => {
                 <div className="Password">
 
                     <InputLabel className='my-3' htmlFor='password'>Password</InputLabel>
-                    <TextField className='sm:w-[25rem] w-[19rem]' id='password' placeholder='*********' variant="outlined"
+                    <TextField
+                        name="password"
+                        onChange={__onchange__}
+                        type={passToggle ? 'password' : "text"}
+                        className='sm:w-[25rem] w-[19rem]' id='password' placeholder='*********' variant="outlined"
                         InputProps={{
                             endAdornment: (
-                                <InputAdornment position="end">
-                                    <Visibility />
+                                <InputAdornment
+                                    onClick={__togglePassword__}
+                                    className='cursor-pointer'
+                                    position="end">
+
+                                    {passToggle ? <Visibility /> : <VisibilityOff />}
                                 </InputAdornment>
                             )
                         }}
                     />
                 </div>
+                <div className="sm:w-[25rem] w-[19rem] flex justify-end text-red-600 hover:text-red-700">
+                    <span className='cursor-pointer'>Forget Password?</span>
+                </div>
 
                 {/* buttons */}
                 <div className="buttons flex flex-col items-center gap-y-4 sm:w-[25rem] w-[19rem]">
 
-                    {/* OAuth 2.0 */}
-                    {/* <div className='b-g-[#000000] text-2xl normal-case sm:w-[27rem] max-[450]:w-[24rem] w-[19rem] py-3 mt-4 flex justify-evenly'>
-                        <Google className='text-6xl hover:text-blue-500 transition-all' />
-                        <Facebook className='text-6xl hover:text-blue-800 transition-all' />
-                        <GitHub className='text-6xl hover:text-gray-700 transition-all' />
-                    </div> */}
-
-
                     {/* login buttons */}
-                    <Button className='bg-[#000000]  text-xl normal-case w-full py-3 mt-4' variant='contained'>Login</Button>
+                    <Button
+                        onClick={__Submit__}
+                        className='btn mt-4' variant='contained'>Sign in</Button>
 
-                    <Button className='bg-[#000000]  text-xl normal-case w-full py-[10px] mt-4' variant='contained'>
-                      <div className="flex items-center h-full justify-center gap-6 w-full">
-                        <Image
-                        alt='google auth'
-                        height={'35'}
-                        width={'35'}
-                        className=''
-                        src='/google-icon.webp'/>
-                        <p>Sign in with google</p>
+                   
+                    {/* google btn */}
+                    <Button
+                        onClick={googleAuth}
+                        className='bg-[#555f80] hover:bg-[#464f6b] text-xl normal-case w-full py-[10px] mt-4' variant='contained'>
+                        <div
+                            className="flex items-center h-full justify-center gap-1 w-full">
+
+
+                            <Image
+                                alt='google auth'
+                                height={'32'}
+                                width={'32'}
+                                src='/google-icon.png' />
+
+                            <p>Continue in with google</p>
+
+
                         </div>
+
                     </Button>
 
 
                     {/* Options */}
-                        
-                    <Link href={'/auth/signup'}><p className='text-sm mt-2'>Don&apos;t have an account <span className='font-semibold underline'>Register here</span></p></Link>
+
+                    <Link href={'/auth/signup'}><p className='text-sm mt-2'>Don&apos;t have an account <span className='font-semibold hover:underline'>Signup here</span></p></Link>
 
 
                 </div>
@@ -85,5 +130,3 @@ const login = () => {
         </>
     )
 }
-
-export default login

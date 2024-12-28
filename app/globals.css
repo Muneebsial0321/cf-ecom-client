@@ -1,3 +1,15 @@
+.c-primary{
+    @apply bg-[#1d284f] !important
+}
+.btn {
+    @apply bg-[#1d284f] text-xl normal-case w-full py-3  hover:bg-[#11172e] !important
+}
+
+
+
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
