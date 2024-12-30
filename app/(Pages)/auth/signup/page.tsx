@@ -51,9 +51,9 @@ const Register = () => {
                 <div className="name w-full">
                     <InputLabel className='my-3' htmlFor="name">Name </InputLabel>
                     <TextField
-                    name='name'
-                    onChange={__onchange__}
-                    className='w-full' id='name' placeholder="Alan Wake" variant="outlined"
+                        name='name'
+                        onChange={__onchange__}
+                        className='w-full' id='name' placeholder="Alan Wake" variant="outlined"
 
                     />
                 </div>
@@ -64,9 +64,9 @@ const Register = () => {
                 <div className="email w-full">
                     <InputLabel className='my-3' htmlFor="email">Email </InputLabel>
                     <TextField
-                     name='email'
-                     onChange={__onchange__}
-                    className='w-full' id='email' placeholder="example@gmail.com" variant="outlined"
+                        name='email'
+                        onChange={__onchange__}
+                        className='w-full' id='email' placeholder="example@gmail.com" variant="outlined"
                         InputProps={{
                             endAdornment: (
                                 <InputAdornment position="end">
@@ -83,9 +83,9 @@ const Register = () => {
 
                     <InputLabel className='my-3' htmlFor='password'>Password</InputLabel>
                     <TextField
-                     name='password'
-                     onChange={__onchange__}
-                    className='w-full' id='password' placeholder='*********' variant="outlined"
+                        name='password'
+                        onChange={__onchange__}
+                        className='w-full' id='password' placeholder='*********' variant="outlined"
                         InputProps={{
                             endAdornment: (
                                 <InputAdornment position="end">
@@ -119,24 +119,40 @@ const Register = () => {
                 <div className="buttons w-full flex flex-col items-center gap-y-4">
 
                     {/* submit */}
-                    <Button 
-                    onClick={__Submit__}
-                    className='btn mt-2' variant='contained'>Create Account</Button>
-                    
+                    <Button
+                        onClick={__Submit__}
+                        className='btn bg-[#f65353] hover:bg-[#dc3e3e] mt-2' variant='contained'>Create Account</Button>
+
+                    <center><p className="text-[1.26rem] font-semibold">or</p></center>
+
+                    {/* facebook auth btn */}
+                    <Button
+                        onClick={googleAuth}
+                        className='btn py-[10px] mt-2' variant='contained'>
+                        <div className="flex items-center h-full justify-center gap-x-1 w-full">
+                            <Image
+                                alt='face auth'
+                                height={'26'}
+                                width={'26'}
+                                className=''
+                                src='/face-icon.png' />
+                            <p>Sign up with Facebook</p>
+                        </div>
+                    </Button>
 
 
                     {/* google auth btn */}
                     <Button
-                    onClick={googleAuth}
-                    className='btn bg-[#555f80] hover:bg-[#464f6b] py-[10px] mt-4' variant='contained'>
-                        <div className="flex items-center h-full justify-center gap-1 w-full">
+                        onClick={googleAuth}
+                        className='btn bg-[#555f80] hover:bg-[#464f6b] py-[10px] mt-2' variant='contained'>
+                        <div className="flex items-center h-full justify-center gap-x-1 w-full">
                             <Image
                                 alt='google auth'
-                                height={'32'}
-                                width={'32'}
+                                height={'26'}
+                                width={'26'}
                                 className=''
                                 src='/google-icon.png' />
-                            <p>Sign in with google</p>
+                            <p>Sign up with google</p>
                         </div>
                     </Button>
 

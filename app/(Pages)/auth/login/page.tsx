@@ -94,28 +94,41 @@ export default function Login() {
                     {/* login buttons */}
                     <Button
                         onClick={__Submit__}
-                        className='btn mt-4' variant='contained'>Sign in</Button>
+                        className='btn bg-[#f65353] hover:bg-[#dc3e3e] mt-4' variant='contained'>Sign in</Button>
 
-                   
-                    {/* google btn */}
+
+                    <center><p className="text-[1.26rem] font-semibold">or</p></center>
+
+
+                    {/* facebook auth btn */}
                     <Button
                         onClick={googleAuth}
-                        className='bg-[#555f80] hover:bg-[#464f6b] text-xl normal-case w-full py-[10px] mt-4' variant='contained'>
-                        <div
-                            className="flex items-center h-full justify-center gap-1 w-full">
+                        className='btn py-[10px] mt-2' variant='contained'>
+                        <div className="flex items-center h-full justify-center gap-x-1 w-full">
+                            <Image
+                                alt='face auth'
+                                height={'26'}
+                                width={'26'}
+                                className=''
+                                src='/face-icon.png' />
+                            <p>Sign in with Facebook</p>
+                        </div>
+                    </Button>
 
 
+                    {/* google auth btn */}
+                    <Button
+                        onClick={googleAuth}
+                        className='btn bg-[#555f80] hover:bg-[#464f6b] py-[10px] mt-2' variant='contained'>
+                        <div className="flex items-center h-full justify-center gap-x-1 w-full">
                             <Image
                                 alt='google auth'
-                                height={'32'}
-                                width={'32'}
+                                height={'26'}
+                                width={'26'}
+                                className=''
                                 src='/google-icon.png' />
-
-                            <p>Continue in with google</p>
-
-
+                            <p>Sign in with google</p>
                         </div>
-
                     </Button>
 
 
